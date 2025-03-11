@@ -1,22 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
-/************ TABLE OF CONTENTS ***************
-
-1. Reset
-2. Global
-3. Nav
-4. Header
-5. Section Title
-6. Fact
-7. About & Features
-8. Sevices
-9. Projects
-10. Appointment
-11. Testimonial Section
-12. Footer
-
-
-**********************************************/
 
 *{
   margin: 0;
@@ -29,11 +12,12 @@ body {
   font-family: "Inter", sans-serif;
 }
 :root {
-  --primary: #d31e26;
-  --secondary: #e6353e;
-
-  --light: #f8f8f8;
-  --dark: #252525;
+  --primary: #4a6cfa; /* Modern blue instead of red */
+  --secondary: #6e89ff; /* Lighter blue for secondary */
+  --light: #f8f9fb; /* Slightly bluer tint for light */
+  --dark: #1e2439; /* Darker blue-black for contrast */
+  --accent:#4a6cfa; /* Add an accent color for highlights */
+  --neutral: #6c757d; /* Add a neutral color for text */
 }
 
 h1,
@@ -102,7 +86,7 @@ a {
 }
 
 .txt-primary {
-  color: #ff6f61 !important; /* Use a modern accent color */
+  color: #6276d0 !important; /* Use a modern accent color */
 }
 
 .bg-dark {
