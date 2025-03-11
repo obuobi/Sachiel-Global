@@ -101,6 +101,14 @@ a {
   color: #ffffff;
 }
 
+.txt-primary {
+  color: #ff6f61 !important; /* Use a modern accent color */
+}
+
+.bg-dark {
+  background-color: #1a1a1a !important; /* Darker background for contrast */
+}
+
 .btn-square {
   width: 38px;
   height: 38px;
@@ -126,15 +134,18 @@ a {
   font-weight: normal;
 }
 
+
+
 .btn-outline-body {
-  color: var(--primary);
-  border-color: var(--primary);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transition: all 0.3s ease;
 }
 
 .btn-outline-body:hover {
-  color: #ffffff;
-  background: var(--primary);
-  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.1); /* Light background on hover */
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
 }
 
 .btn-inline-body {
