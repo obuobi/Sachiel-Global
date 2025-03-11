@@ -12,7 +12,7 @@ body {
   font-family: "Inter", sans-serif;
 }
 :root {
-  --primary: #4a6cfa; /* Modern blue instead of red */
+  --primary: #556bc4; /* Modern blue instead of red */
   --secondary: #6e89ff; /* Lighter blue for secondary */
   --light: #f8f9fb; /* Slightly bluer tint for light */
   --dark: #1e2439; /* Darker blue-black for contrast */
