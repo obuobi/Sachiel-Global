@@ -19,7 +19,14 @@ body {
   --accent:#4a6cfa; /* Add an accent color for highlights */
   --neutral: #6c757d; /* Add a neutral color for text */
 }
-
+.luxury-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 h1,
 h2,
 .h1,
