@@ -27,6 +27,27 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+.luxury-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: #f8f9fa;
+  line-height: 1.6;
+}
+
+.luxury-btn {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 12px 30px;
+  border-radius: 30px;
+  background: #6e89ff;
+  color: #FFFF;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+
 h1,
 h2,
 .h1,
