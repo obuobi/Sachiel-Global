@@ -35,7 +35,38 @@
             time: 2000
         });
     }
+    // Add this to your existing main.js file
 
+// Logo enhancement on scroll
+document.addEventListener("DOMContentLoaded", () => {
+    const navbar = document.querySelector(".navbar")
+    const logoImg = document.querySelector(".logo-img")
+    const logoContainer = document.querySelector(".logo-container")
+  
+    // Initial animation
+    setTimeout(() => {
+      if (logoContainer) {
+        logoContainer.style.transform = "translateY(0)"
+        logoContainer.style.opacity = "1"
+      }
+    }, 300)
+  
+    // Scroll effect
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        if (logoImg) logoImg.classList.add("scrolled")
+        if (logoContainer)
+          logoContainer.style.background =
+            "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,249,251,0.9) 100%)"
+      } else {
+        if (logoImg) logoImg.classList.remove("scrolled")
+        if (logoContainer)
+          logoContainer.style.background = "linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,249,251,0.8) 100%)"
+      }
+    })
+  })
+  
+  
     // Date & Time Picker Initialization (Ensures correct format)
     if ($.fn.datetimepicker) {
         $(".date").datetimepicker({ format: "L" });
