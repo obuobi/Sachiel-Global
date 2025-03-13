@@ -11,6 +11,116 @@ body {
   overflow-x: hidden;
   font-family: "Inter", sans-serif;
 }
+/* Mobile Animation Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Apply animations to elements when they come into view */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--animation-timing), transform 0.6s var(--animation-timing);
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile-specific animations */
+@media (max-width: 768px) {
+  .mobile-fade-in {
+    animation: fadeInUp 0.5s var(--animation-timing) forwards;
+  }
+
+  .mobile-fade-left {
+    animation: fadeInLeft 0.5s var(--animation-timing) forwards;
+  }
+
+  .mobile-fade-right {
+    animation: fadeInRight 0.5s var(--animation-timing) forwards;
+  }
+
+  .mobile-pulse {
+    animation: pulse 2s infinite;
+  }
+
+  /* Staggered animations for lists on mobile */
+  .stagger-list > * {
+    opacity: 0;
+    animation: fadeInUp 0.5s var(--animation-timing) forwards;
+  }
+
+  .stagger-list > *:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .stagger-list > *:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .stagger-list > *:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .stagger-list > *:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  .stagger-list > *:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+  .stagger-list > *:nth-child(6) {
+    animation-delay: 0.6s;
+  }
+}
 
 :root {
   --primary: #556bc4; /* Modern blue instead of red */
@@ -28,6 +138,17 @@ body {
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
+  transition: transform 0.3s var(--animation-timing);
+}
+
+@media (max-width: 768px) {
+  .luxury-title {
+    animation: fadeInUp 0.5s var(--animation-timing);
+  }
+
+  .luxury-title:active {
+    transform: scale(0.98);
+  }
 }
 
 .luxury-text {
@@ -36,6 +157,12 @@ body {
   font-size: clamp(1rem, 3vw, 1.2rem);
   color: #f8f9fa;
   line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .luxury-text {
+    animation: fadeInUp 0.7s var(--animation-timing);
+  }
 }
 
 .luxury-btn {
@@ -48,17 +175,40 @@ body {
   background: #6e89ff;
   color: #ffff;
   text-decoration: none;
-  transition: 0.3s ease-in-out;
+  transition: all 0.3s var(--animation-timing);
   display: inline-block;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.luxury-btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: width 0.3s var(--animation-timing);
+  z-index: -1;
+}
+
+.luxury-btn:hover:before {
+  width: 100%;
 }
 
 @media (max-width: 576px) {
   .luxury-btn {
     padding: 8px 20px;
     font-size: 0.9rem;
+    animation: fadeInUp 0.9s var(--animation-timing);
+  }
+
+  .luxury-btn:active {
+    transform: scale(0.95);
   }
 }
-
 h1,
 h2,
 .h1,
@@ -87,12 +237,18 @@ a {
   text-decoration: none;
 }
 
-.back-to-top {
+back-to-top {
   position: fixed;
   display: none;
   right: 20px;
   bottom: 20px;
   z-index: 99;
+  animation: fadeInUp 0.5s var(--animation-timing);
+  transition: transform 0.3s var(--animation-timing);
+}
+
+.back-to-top:active {
+  transform: translateY(-5px);
 }
 
 @media (min-width: 768px) {
@@ -100,10 +256,6 @@ a {
     right: 30px;
     bottom: 30px;
   }
-}
-
-.txt-primary {
-  color: var(--primary);
 }
 
 /*** Spinner ***/
@@ -401,11 +553,6 @@ a {
 }
 
 
-/* Style for the scrolled logo state */
-.logo-img.scrolled {
-  transform: scale(0.95);
-  filter: drop-shadow(0 4px 8px rgba(85, 107, 196, 0.3));
-}
 
 
 /* Background Image for Appointment Section */
@@ -965,15 +1112,8 @@ a {
   padding-bottom: 10px;
 }
 
-@media (max-width: 576px) {
-  .footer h3 {
-    font-size: 1.25rem;
-    margin-bottom: 20px;
-  }
-}
-
 .footer h3::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: 0;
@@ -1058,14 +1198,6 @@ a {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 576px) {
-  .footer .copyright {
-    padding: 15px 0;
-    font-size: 14px;
-    text-align: center;
-  }
-}
-
 .footer .copyright a {
   color: #adb5bd;
   font-weight: 500;
@@ -1081,14 +1213,22 @@ a {
   animation-duration: 1.5s;
 }
 
-/* Additional Responsive adjustments */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .footer {
     padding-top: 30px;
   }
-
+  
   .footer h3 {
     margin-top: 20px;
+  }
+}
+
+
+/* Additional Responsive adjustments */
+@media (max-width: 768px) {
+  .footer {
+    padding-top: 30px;
   }
 
   .container {
