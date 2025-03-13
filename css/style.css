@@ -446,6 +446,7 @@ a {
   width: auto;
   transition: all 0.5s var(--animation-timing);
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  border-radius: 10px;
 }
 
 /* Logo container with glow effect */
