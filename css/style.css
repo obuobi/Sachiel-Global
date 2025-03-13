@@ -238,26 +238,7 @@ a {
   transition: color 0.3s var(--animation-timing);
 }
 
-back-to-top {
-  position: fixed;
-  display: none;
-  right: 20px;
-  bottom: 20px;
-  z-index: 99;
-  animation: fadeInUp 0.5s var(--animation-timing);
-  transition: transform 0.3s var(--animation-timing);
-}
 
-.back-to-top:active {
-  transform: translateY(-5px);
-}
-
-@media (min-width: 768px) {
-  .back-to-top {
-    right: 30px;
-    bottom: 30px;
-  }
-}
 
 /*** Spinner ***/
 #spinner {
