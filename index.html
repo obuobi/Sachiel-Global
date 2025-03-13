@@ -22,6 +22,10 @@
       rel="stylesheet"
     />
 
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+  />
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet" />
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
@@ -1158,10 +1162,14 @@
               </div>
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-              <form id="appointmentForm">
+              <form id="appointmentForm" class="p-4 shadow rounded bg-light">
+                <div id="alertMessage" class="alert alert-danger d-none" role="alert">
+                  Please fill out all required fields correctly.
+                </div>
                 <div class="row g-3">
                   <div class="col-12 col-sm-6">
                     <input
+                      id="name"
                       type="text"
                       class="form-control"
                       placeholder="Your Name"
@@ -1171,6 +1179,7 @@
                   </div>
                   <div class="col-12 col-sm-6">
                     <input
+                      id="email"
                       type="email"
                       class="form-control"
                       placeholder="Your Email"
@@ -1209,7 +1218,7 @@
                     <button
                       type="submit"
                       class="btn btn-inline-body w-100 py-3"
-                      id="submitBtn"
+                      id="submitButton"
                     >
                       Book Appointment
                     </button>
