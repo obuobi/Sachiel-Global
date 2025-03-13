@@ -67,6 +67,24 @@ document.addEventListener("DOMContentLoaded", () => {
   })
   
   
+  // Add animation classes when elements come into view
+  document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.card');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.1});
+    
+    cards.forEach(card => {
+      observer.observe(card);
+    });
+  });
+  
     // Date & Time Picker Initialization (Ensures correct format)
     if ($.fn.datetimepicker) {
         $(".date").datetimepicker({ format: "L" });
