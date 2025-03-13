@@ -1224,43 +1224,43 @@
     <!-- Appointment End -->
 
     <!-- Success Modal -->
-    <div
-      class="modal fade"
-      id="successModal"
-      tabindex="-1"
-      aria-labelledby="successModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="successModalLabel">
-              Appointment Success
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            Your appointment has been successfully booked. We will contact you
-            soon!
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-inline-body"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      </div>
+<div
+class="modal fade"
+id="successModal"
+tabindex="-1"
+aria-labelledby="successModalLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content p-3">
+    <div class="modal-header border-0">
+      <h5 class="modal-title fw-bold text-success" id="successModalLabel">
+        <i class="bi bi-check-circle-fill"></i> Appointment Confirmed!
+      </h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
     </div>
-
+    <div class="modal-body text-center">
+      <p class="fs-5 text-muted">
+        Your appointment has been successfully booked. We will contact you soon!
+      </p>
+    </div>
+    <div class="modal-footer border-0 justify-content-center">
+      <button
+        type="button"
+        class="btn btn-success w-50"
+        data-bs-dismiss="modal"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+</div>
     <!-- Footer Start -->
     <section>
       <div
@@ -1383,31 +1383,37 @@
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById("appointmentForm");
+   
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("appointmentForm");
+    const successModalElement = document.getElementById("successModal");
+    const successModal = new bootstrap.Modal(successModalElement);
+    const alertMessage = document.getElementById("alertMessage");
+    const submitButton = document.getElementById("submitButton");
 
-        form.addEventListener("submit", function (event) {
-          event.preventDefault(); // Prevent page reload
+    form.addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent page reload
 
-          // Validate form inputs if necessary (optional)
-          // Example: Check if all required fields are filled
-          if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
-          }
+      if (!form.checkValidity()) {
+        alertMessage.classList.remove("d-none");
+        return;
+      }
 
-          // Display the success modal
-          const successModal = new bootstrap.Modal(
-            document.getElementById("successModal")
-          );
-          successModal.show();
+      alertMessage.classList.add("d-none"); // Hide alert if valid
+      submitButton.disabled = true; // Disable button to prevent multiple clicks
 
-          // Clear the form (optional)
-          form.reset();
-        });
-      });
-    </script>
+      successModal.show(); // Show success modal
+
+      setTimeout(() => {
+        successModal.hide(); // Auto-close modal after 3 seconds
+        submitButton.disabled = false; // Re-enable button
+      }, 3000);
+
+      form.reset(); // Clear the form after submission
+    });
+  });
+</script>
 
     <!-- Custom Javascript -->
     <script src="js/main.js"></script>
