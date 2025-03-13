@@ -439,14 +439,13 @@ a {
   transition: all 0.4s var(--animation-timing);
   z-index: 100;
 }
-
 .logo-img {
   height: auto;
   max-height: 60px; /* Adjust based on your logo size */
   width: auto;
   transition: all 0.5s var(--animation-timing);
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
-  border-radius: 10px;
+  border-radius: 25px; /* Increased for a curvier look */
 }
 
 /* Logo container with glow effect */
