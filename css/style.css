@@ -551,6 +551,35 @@ a {
   margin-bottom: 1rem;
 }
 
+.contact-card {
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.contact-icon {
+  width: 60px;
+  height: 60px;
+  background-color: #6e89ff;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.contact-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+.contact-card h4 {
+  font-size: 18px;
+  font-weight: bold;
+}
 
 
 /* Background Image for Appointment Section */
