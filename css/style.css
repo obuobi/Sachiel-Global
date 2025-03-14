@@ -535,6 +535,21 @@ a {
   transform: translateY(-2px);
 }
 
+.icon-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+.icon-style {
+  color: #d4af37;
+  margin-right: 8px;
+}
+.section-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 1rem;
+}
 
 
 
