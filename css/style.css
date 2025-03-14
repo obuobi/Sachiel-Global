@@ -583,11 +583,6 @@ a {
 
 
 /* Background Image for Appointment Section */
-.appointment-section {
-  background: url('/img/Sac.jpg') no-repeat center center/cover;
-  position: relative;
-  padding: 80px 0;
-}
 
 /* Dark Overlay for Better Readability */
 .appointment-section::before {
