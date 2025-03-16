@@ -66,6 +66,80 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
   
+  document.addEventListener("DOMContentLoaded", function () {
+    const commentForm = document.querySelector(".comments textarea");
+    const postCommentButton = document.querySelector(".comments button");
+    const commentsContainer = document.querySelector(".comments .mt-4");
+  
+    // Function to create a new comment element
+    function createCommentElement(username, date, text) {
+      const commentDiv = document.createElement("div");
+      commentDiv.classList.add("comment", "mb-3");
+      commentDiv.innerHTML = `
+        <div class="d-flex justify-content-between">
+          <div class="d-flex">
+            <img src="img/testimonial-3.jpg" alt="Commenter" class="rounded-circle me-3" width="40" />
+            <div>
+              <strong>${username}</strong>
+              <span class="text-muted">${date}</span>
+            </div>
+          </div>
+          <a href="#" class="text-muted reply-btn">Reply</a>
+        </div>
+        <p class="mt-2">${text}</p>
+        <div class="replies"></div>
+      `;
+  
+      // Add reply functionality
+      commentDiv.querySelector(".reply-btn").addEventListener("click", function (event) {
+        event.preventDefault();
+        addReplyBox(commentDiv);
+      });
+  
+      return commentDiv;
+    }
+  
+    // Function to add a reply box
+    function addReplyBox(commentDiv) {
+      // Remove existing reply box if already present
+      const existingReplyBox = commentDiv.querySelector(".reply-box");
+      if (existingReplyBox) {
+        existingReplyBox.remove();
+        return;
+      }
+  
+      const replyBox = document.createElement("div");
+      replyBox.classList.add("reply-box", "mt-2");
+      replyBox.innerHTML = `
+        <textarea class="form-control mb-2" rows="2" placeholder="Reply..."></textarea>
+        <button class="btn btn-sm btn-outline-body">Reply</button>
+      `;
+  
+      commentDiv.querySelector(".replies").appendChild(replyBox);
+  
+      // Handle reply submission
+      replyBox.querySelector("button").addEventListener("click", function () {
+        const replyText = replyBox.querySelector("textarea").value.trim();
+        if (replyText) {
+          const replyElement = createCommentElement("You", new Date().toLocaleDateString(), replyText);
+          replyElement.classList.add("ms-4"); // Indent reply
+          commentDiv.querySelector(".replies").appendChild(replyElement);
+          replyBox.remove(); // Remove reply box after posting
+        }
+      });
+    }
+  
+    // Post new comment
+    postCommentButton.addEventListener("click", function () {
+      const commentText = commentForm.value.trim();
+      if (commentText) {
+        const newComment = createCommentElement("You", new Date().toLocaleDateString(), commentText);
+        commentsContainer.appendChild(newComment);
+        commentForm.value = ""; // Clear textarea after posting
+      }
+    });
+  });
+  
   
   // Add animation classes when elements come into view
   document.addEventListener('DOMContentLoaded', function() {
