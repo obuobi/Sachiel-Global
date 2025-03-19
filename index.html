@@ -9,7 +9,7 @@
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon" />
-
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <!-- Latest Font Awesome CDN -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -1138,7 +1138,6 @@
                 </div>
               </div>
             </div><br>
-            
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
               <form id="appointmentForm" class="p-4 shadow rounded bg-light">
                 <div id="alertMessage" class="alert alert-danger d-none" role="alert">
@@ -1168,25 +1167,27 @@
                   </div>
                   <div class="col-12 col-sm-6">
                     <input
-                      type="number"
+                      id="mobile"
+                      type="tel"
                       class="form-control font-monospace"
                       placeholder="Mobile Number"
                       style="height: 55px"
                       required
                     />
                   </div>
-
+            
                   <div class="col-12 col-sm-6 font-monospace text-muted">
-                    <select class="form-select text-muted" style="height: 55px" required>
+                    <select id="service" class="form-select text-muted" style="height: 55px" required>
                       <option value="" disabled selected>Choose Service</option>
                       <option value="S-Motion rental">S-Motion rental</option>
                       <option value="Transport & Logistics">Transport & Logistics</option>
                       <option value="Homes & Property">Homes & Property</option>
                     </select>
                   </div>
-
+            
                   <div class="col-12">
                     <textarea
+                      id="message"
                       class="form-control font-monospace"
                       rows="7"
                       placeholder="Message"
@@ -1194,22 +1195,14 @@
                     ></textarea>
                   </div>
                   <div class="col-12">
-                    <button
-                      type="submit"
-                      class="btn btn-inline-body w-100 py-3"
-                      id="submitButton"
-                    >
-                      Book Appointment🧾
+                    <button type="submit" class="btn btn-inline-body w-100 py-3" id="submitButton">
+                      Book Appointment 🧾
                     </button>
                   </div>
                 </div>
               </form>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Appointment End -->
+            
 
     <!-- Success Modal -->
 <div
@@ -1397,6 +1390,7 @@ aria-hidden="true"
       form.reset(); // Clear the form after submission
     });
   });
+  
 </script>
 
     <!-- Custom Javascript -->

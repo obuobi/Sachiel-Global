@@ -135,6 +135,60 @@
       $(".time").datetimepicker({ format: "LT" });
   }
 
+  document.addEventListener("DOMContentLoaded", function () {
+    // Initialize EmailJS with your public key
+    emailjs.init("T7e8OFS9XfLcM-FJ7");
+  
+    // Get the form element
+    const form = document.getElementById("appointmentForm");
+  
+    if (!form) {
+      console.error("❌ Form not found! Check if 'appointmentForm' exists in the HTML.");
+      return;
+    }
+  
+    // Listen for form submission
+    form.addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent default form submission
+  
+      // Get form values using correct IDs
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let mobile = document.getElementById("mobile").value.trim();
+      let service = document.getElementById("service").value.trim();
+      let message = document.getElementById("message").value.trim();
+  
+      // Debugging - Check if values are captured correctly
+      console.log("Captured Data:", { name, email, mobile, service, message });
+  
+    
+  
+      // EmailJS template parameters (match these with your EmailJS template variables)
+      let templateParams = {
+        name: name,
+        email: email,
+        mobile: mobile,
+        service: service,
+        message: message
+      };
+  
+      console.log("Sending the following data to EmailJS:", templateParams);
+  
+      // Send email via EmailJS
+      emailjs.send("service_atdojam", "template_vk9zheb", templateParams)
+        .then(response => {
+          console.log("✅ Email sent successfully!", response);
+          alert("📩 Appointment request sent successfully!");
+          form.reset(); // Clear the form after successful submission
+        })
+        .catch(error => {
+          console.error("❌ EmailJS API Error:", error);
+          alert("❌ Failed to send email. Check the console for details.");
+        });
+    });
+  });
+  
+  
   // Smooth Scroll Reveal
   document.addEventListener("DOMContentLoaded", () => {
       const observer = new IntersectionObserver((entries) => {
