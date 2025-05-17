@@ -2,84 +2,144 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Sachiel Global 🌐</title>
+    <title>Sachiel Global🌐 - Maintenance</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
+    <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome and Google Fonts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     
-    <!-- Styles -->
     <style>
-        body {
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --text-color: #333;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+        }
+        
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
+            box-sizing: border-box;
         }
-        .alert-card {
-            background-color: #ffffff;
-            padding: 30px 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--text-color);
+            line-height: 1.6;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            max-width: 400px;
+            padding: 20px;
+            background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .maintenance-container {
+            max-width: 600px;
+            padding: 40px 30px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             animation: fadeIn 0.8s ease-out;
         }
-        .alert-card h1 {
-            font-size: 1.8em;
-            color: #ff4d4d;
+        
+        .icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        h1 {
+            color: var(--secondary-color);
             margin-bottom: 15px;
+            font-weight: 700;
+            font-size: 2rem;
         }
-        .alert-card p {
-            font-size: 1em;
+        
+        p {
+            margin-bottom: 25px;
             color: #555;
-            margin-bottom: 20px;
+            font-size: 1.1rem;
         }
-        .alert-card .icon {
-            font-size: 3em;
-            color: #ff4d4d;
-            margin-bottom: 20px;
+        
+        .status-code {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            color: #666;
         }
+        
+        .contact-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .alert-card button {
-            background-color: #ff4d4d;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9em;
-            transition: background-color 0.3s;
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
-        .alert-card button:hover {
-            background-color: #e63946;
+        
+        @media (max-width: 768px) {
+            .maintenance-container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .icon {
+                font-size: 3rem;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="alert-card">
+    <div class="maintenance-container">
         <div class="icon">
             <i class="fas fa-exclamation-triangle"></i>
         </div>
-        <h1>Website Unavailable</h1>
-        <p>The website is down due to an unfinished payment. Please come back later. Thank you.</p>
-        <button onclick="alert('Thank you for your patience!')">Learn More</button>
+        <h1>Website Temporarily Unavailable</h1>
+        <p>We're currently processing payment verification. Our team is working to restore access as quickly as possible.</p>
+        <p>We apologize for the inconvenience and appreciate your patience.</p>
+        <div class="status-code">Status: Payment Processing</div>
+        <a href="mailto:support@sachielglobal.com" class="contact-link">
+            <i class="fas fa-envelope"></i> Contact Support
+        </a>
     </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
